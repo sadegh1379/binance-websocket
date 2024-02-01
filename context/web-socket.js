@@ -9,7 +9,7 @@ const WebSocketProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const ws = new WebSocket();
+    const ws = new WebSocket(WSSUrl);
 
     const handleWebSocketMessage = (event) => {
       if (event.data) {

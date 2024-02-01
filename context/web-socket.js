@@ -2,13 +2,14 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
 const WebSocketContext = createContext();
+const WSSUrl = process.env.BINANCE_WSS_URL;
 
 const WebSocketProvider = ({ children }) => {
   const [socketData, setSocketData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const ws = new WebSocket('wss://fstream.binance.com/ws/bnbusdt');
+    const ws = new WebSocket();
 
     const handleWebSocketMessage = (event) => {
       if (event.data) {

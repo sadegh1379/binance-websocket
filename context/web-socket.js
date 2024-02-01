@@ -2,7 +2,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
 const WebSocketContext = createContext();
-const WSSUrl = process.env.BINANCE_WSS_URL;
+const WSSUrl = process.env.NEXT_PUBLIC_BINANCE_WSS_URL;
 
 const WebSocketProvider = ({ children }) => {
   const [socketData, setSocketData] = useState([]);

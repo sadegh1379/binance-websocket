@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
-function CurrencyCard({ name, lastPrice, PriceChangePercent }) {
+function CurrencyCard({ name, lastPrice, priceChangePercent }) {
     const [prevPrice, setPrevPrice] = useState(lastPrice);
     const [priceColor, setPriceColor] = useState('white');
-    const [prevPercents, setPrevPercents] = useState(PriceChangePercent);
+    const [prevPercents, setPrevPercents] = useState(priceChangePercent);
     const [percentsColor, setPercentsColor] = useState('white');
 
     useEffect(() => {
@@ -18,18 +18,18 @@ function CurrencyCard({ name, lastPrice, PriceChangePercent }) {
         }
 
         // percent color handler
-        if (PriceChangePercent > prevPercents) {
+        if (priceChangePercent > prevPercents) {
             setPercentsColor('green');
-        } else if (PriceChangePercent < prevPercents) {
+        } else if (priceChangePercent < prevPercents) {
             setPercentsColor('red')
         } else {
             setPercentsColor('white');
         }
       
 
-        setPrevPercents(PriceChangePercent);
+        setPrevPercents(priceChangePercent);
         setPrevPrice(lastPrice);
-    }, [lastPrice, PriceChangePercent])
+    }, [lastPrice, priceChangePercent])
 
    
     
@@ -41,7 +41,7 @@ function CurrencyCard({ name, lastPrice, PriceChangePercent }) {
           </div>
           <div className="flex justify-between items-center">
               <span className="opacity-50 text-xs">perpetual</span>
-              <span className="text-xs" style={{ color: percentsColor }}>{PriceChangePercent}%</span>
+              <span className="text-xs" style={{ color: percentsColor }}>{priceChangePercent}%</span>
           </div>
       </div>
   )
